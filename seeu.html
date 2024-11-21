@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>❤️</title>
+    <link rel="stylesheet" href="css/seeu.css">
+</head>
+<body>
+    <div class="summary-container">
+        <h1>YEAYYY SEEUUUUUU</h1>
+        <div id="result"></div>
+    </div>
+
+    <script>
+        // Ambil data dari URL (query string)
+        const urlParams = new URLSearchParams(window.location.search);
+        const waktuKosong = urlParams.get("waktuKosong");
+        const waktuBerangkat = urlParams.get("waktuBerangkat");
+        const waktuPulang = urlParams.get("waktuPulang");
+        const destinasi = urlParams.get("destinasi");
+
+        // Tampilkan data di halaman
+        const resultContainer = document.getElementById("result");
+
+        if (waktuKosong && waktuBerangkat && waktuPulang && destinasi) {
+            resultContainer.innerHTML = `
+                <p>Waktu Kosong: <strong>${waktuKosong}</strong></p>
+                <p>Waktu Berangkat: <strong>${waktuBerangkat}</strong></p>
+                <p>Waktu Pulang: <strong>${waktuPulang}</strong></p>
+                <h3>Destinasi Pilihan: <strong>${destinasi}</strong></h3>
+            `;
+        } else {
+            resultContainer.innerHTML = `
+                <h1>Kesimpulan</h1>
+                <p>Data tidak lengkap. Silakan isi form dan pilih destinasi.</p>
+            `;
+        }
+    </script>
+</body>
+</html>

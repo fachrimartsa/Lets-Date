@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>❤️</title>
+    <link rel="stylesheet" href="css/destinasi.css">
+    <script>
+        // Ambil data dari localStorage
+        const waktuKosong = localStorage.getItem("waktuKosong");
+        const waktuBerangkat = localStorage.getItem("waktuBerangkat");
+        const waktuPulang = localStorage.getItem("waktuPulang");
+    
+        // Validasi apakah data tersedia
+        if (!waktuKosong || !waktuBerangkat || !waktuPulang) {
+            alert("Data form sebelumnya belum diisi. Silakan kembali ke date.html untuk mengisi form.");
+            window.location.href = "date.html"; // Kembali ke form jika data tidak ada
+        } else {
+            console.log("Data berhasil diambil dari localStorage:");
+            console.log("Waktu Kosong:", waktuKosong);
+            console.log("Waktu Berangkat:", waktuBerangkat);
+            console.log("Waktu Pulang:", waktuPulang);
+        }
+    
+        // Fungsi untuk meneruskan data ke `seeu.html`
+        function goToSeeU(imageAlt) {
+            // Masukkan data localStorage dan destinasi ke URL
+            const queryParams = `waktuKosong=${encodeURIComponent(waktuKosong)}&waktuBerangkat=${encodeURIComponent(waktuBerangkat)}&waktuPulang=${encodeURIComponent(waktuPulang)}&destinasi=${encodeURIComponent(imageAlt)}`;
+            window.location.href = "seeu.html?" + queryParams;
+        }
+    </script>    
+</head>
+<body>
+    <h1>MAUUU KEMANAA KITAAA NANTI</h1>
+    <div class="container1">
+        <div class="card">
+            <img src="img/cafe.jpg" alt="Date Place 1" onclick="goToSeeU('Caffe Date')">
+        </div>
+        <div class="card">
+            <img src="img/bioskop.png" alt="Date Place 2" onclick="goToSeeU('Movie Date')">
+        </div>
+        <div class="card">
+            <img src="img/museum.jpg" alt="Date Place 3" onclick="goToSeeU('Museum Date')">
+        </div>
+    </div>
+    <div class="container2">
+        <div class="card">
+            <img src="img/taman.jpg" alt="Date Place 4" onclick="goToSeeU('Park Date')">
+        </div>
+        <div class="card">
+            <img src="img/timezone.jpg" alt="Date Place 5" onclick="goToSeeU('TimeZone Date')">
+        </div>
+        <div class="card">
+            <img src="img/dinner.jpg" alt="Date Place 6" onclick="goToSeeU('Dinner Date')">
+        </div>
+    </div>
+</body>
+</html>
