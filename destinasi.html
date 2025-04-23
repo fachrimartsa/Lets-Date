@@ -4,32 +4,84 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Destinasi ❤️</title>
-    <link rel="stylesheet" href="css/destinasi.css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+    </script>
     <script>
-        // Ambil data dari localStorage
+        // Initialize EmailJS with your User ID
+        window.onload = function() {
+            emailjs.init("9dAN8pdHKPqCM9ij8");  // Replace with your valid User ID
+        };
+        
+        // Get data from localStorage
         const waktuKosong = localStorage.getItem("waktuKosong");
         const waktuBerangkat = localStorage.getItem("waktuBerangkat");
         const waktuPulang = localStorage.getItem("waktuPulang");
     
-        // Validasi apakah data tersedia
-        if (!waktuKosong || !waktuBerangkat || !waktuPulang) {
-            alert("Data form sebelumnya belum diisi. Silakan kembali ke date.html untuk mengisi form.");
-            window.location.href = "date.html"; // Kembali ke form jika data tidak ada
-        } else {
-            console.log("Data berhasil diambil dari localStorage:");
-            console.log("Waktu Kosong:", waktuKosong);
-            console.log("Waktu Berangkat:", waktuBerangkat);
-            console.log("Waktu Pulang:", waktuPulang);
+        // Show loading spinner
+        function showLoading() {
+            document.getElementById('loading').style.display = 'block';
         }
-    
-        // Fungsi untuk meneruskan data ke `seeu.html`
-        function goToSeeU(imageAlt) {
-            // Masukkan data localStorage dan destinasi ke URL
+
+        // Hide loading spinner
+        function hideLoading() {
+            document.getElementById('loading').style.display = 'none';
+        }
+
+        // Function to send email using EmailJS
+        function sendEmail(imageAlt) {
+            // Prepare data to send in email
+            const emailData = {
+                from_name: "John Doe",
+                message: `I want to go on a date to: ${imageAlt}. Departure: ${waktuBerangkat}, Return: ${waktuPulang}`
+            };
+
+            // Send email via EmailJS
+            emailjs.send("service_q11njan", "template_ntnr8v7", emailData)
+                .then(function(response) {
+                    console.log("Success", response);
+                    // On success, redirect after hiding the loading spinner
+                    hideLoading();
+                    redirectToSeeU(imageAlt);
+                }).catch(function(error) {
+                    console.log("Error", error);
+                    hideLoading();
+                    alert("There was an error sending the email.");
+                });
+        }
+
+        // Redirect function to move to the next page with URL params
+        function redirectToSeeU(imageAlt) {
             const queryParams = `waktuKosong=${encodeURIComponent(waktuKosong)}&waktuBerangkat=${encodeURIComponent(waktuBerangkat)}&waktuPulang=${encodeURIComponent(waktuPulang)}&destinasi=${encodeURIComponent(imageAlt)}`;
             window.location.href = "seeu.html?" + queryParams;
         }
-    </script>    
+
+        // Main function to trigger email and redirection
+        function goToSeeU(imageAlt) {
+            // If the form data is missing, show alert and return
+            if (!waktuKosong || !waktuBerangkat || !waktuPulang) {
+                alert("Data form sebelumnya belum diisi. Silakan kembali ke date.html untuk mengisi form.");
+                window.location.href = "date.html";
+                return;
+            }
+            showLoading(); // Show loading spinner
+            sendEmail(imageAlt); // Call the function to send email
+        }
+    </script>
     <style>
+        #loading {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #3498db;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 2s linear infinite;
+            display: none; /* Hidden by default */
+        }
+
         body {
             font-family: 'Poppins', sans-serif;
             background: linear-gradient(45deg, #ff99cc, #ff66b2, #ff3399);
@@ -143,6 +195,7 @@
 <body>
     <h1>MAUUU KEMANAA KITAAA NANTI 💕</h1>
 
+    <div id="loading" style="display: none;"></div>
     <!-- Destinasi cards -->
     <div class="container1">
         <div class="card" onclick="goToSeeU('Caffe Date')">
