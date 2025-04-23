@@ -15,7 +15,7 @@
             softpink: '#fff0f5',
           },
           fontFamily: {
-            cute: ['"Comic Sans MS"'],
+            cute: ['"Comic Sans MS"', 'cursive'],
           },
           animation: {
             float: 'float 4s ease-in-out infinite',
@@ -32,6 +32,9 @@
     }
   </script>
   <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
     body {
       font-family: "Comic Sans MS", cursive;
       background: linear-gradient(to bottom, #ffe4e6, #ffc1d9);
@@ -49,17 +52,17 @@
 
   <h1 class="text-4xl md:text-5xl font-cute text-romantic heartbeat mb-6 text-center">YEEEAAAYYYY 💕</h1>
 
-  <!-- ❤️ versi HP: kanan kiri gambar cowo -->
+  <!-- ❤️ versi HP -->
   <div class="flex md:hidden items-center justify-center gap-2 mb-6">
     <div class="text-3xl animate-bounce">❤️</div>
     <img src="img/cowo.png" alt="Cowo" class="w-32 float" />
     <div class="text-3xl animate-bounce">❤️</div>
   </div>
 
-  <!-- ❤️ versi Desktop: cowo - form - cewe -->
-  <div class="flex md:flex-row items-center justify-center gap-8 w-full max-w-5xl">
+  <!-- ❤️ versi Desktop -->
+  <div class="flex flex-col md:flex-row items-center justify-center gap-8 w-full max-w-5xl">
 
-    <!-- Gambar Cowo (desktop only) -->
+    <!-- Gambar Cowo -->
     <img src="img/cowo.png" alt="Cowo"
          class="w-32 md:w-64 float hidden md:block" />
 
@@ -68,15 +71,15 @@
           class="bg-softpink p-6 md:p-8 rounded-3xl shadow-2xl border-4 border-romantic w-full md:w-1/2 space-y-4">
       <label for="waktuKosong" class="block text-lg font-cute text-romantic">Waktu Kosong</label>
       <input type="date" name="waktuKosong" id="waktuKosong" required
-             class="w-full p-2 border border-romantic rounded-lg" />
+             class="appearance-none w-full min-w-0 p-2 border border-romantic rounded-lg outline-none focus:ring-2 focus:ring-romantic" />
 
       <label for="waktuBerangkat" class="block text-lg font-cute text-romantic">Berangkat</label>
       <input type="time" name="waktuBerangkat" id="waktuBerangkat" required
-             class="w-full p-2 border border-romantic rounded-lg" />
+             class="appearance-none w-full min-w-0 p-2 border border-romantic rounded-lg outline-none focus:ring-2 focus:ring-romantic" />
 
       <label for="waktuPulang" class="block text-lg font-cute text-romantic">Pulang</label>
       <input type="time" name="waktuPulang" id="waktuPulang" required
-             class="w-full p-2 border border-romantic rounded-lg" />
+             class="appearance-none w-full min-w-0 p-2 border border-romantic rounded-lg outline-none focus:ring-2 focus:ring-romantic" />
 
       <button type="button" id="submitTanggal"
               class="w-full mt-4 bg-romantic hover:bg-pink-600 text-white py-2 px-4 rounded-full text-lg font-cute shadow-md transition-all duration-300 hover:scale-105">
@@ -84,12 +87,12 @@
       </button>
     </form>
 
-    <!-- Gambar Cewe (hanya desktop) -->
+    <!-- Gambar Cewe -->
     <img src="img/cewe.png" alt="Cewe"
          class="w-36 md:w-72 float hidden md:block" />
   </div>
 
-  <!-- ❤️ Cinta-cintaan versi Desktop -->
+  <!-- ❤️ Desktop Cinta -->
   <div class="hidden md:flex justify-between w-full px-10 md:px-40 mt-10 text-3xl md:text-5xl">
     <div class="animate-bounce">❤️</div>
     <div class="animate-bounce">❤️</div>
