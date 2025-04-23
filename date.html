@@ -1,46 +1,113 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>❤️</title>
-    <link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>❤️ YEEEAAAYYYY ❤️</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            pinky: '#ffe4e6',
+            romantic: '#ff69b4',
+            softpink: '#fff0f5',
+          },
+          fontFamily: {
+            cute: ['"Comic Sans MS"', '"Comic Neue"', 'cursive'],
+          },
+          animation: {
+            float: 'float 4s ease-in-out infinite',
+            heartbeat: 'pulse 1.5s ease-in-out infinite',
+          },
+          keyframes: {
+            float: {
+              '0%, 100%': { transform: 'translateY(0)' },
+              '50%': { transform: 'translateY(-15px)' },
+            },
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      font-family: "Comic Sans MS", cursive;
+      background: linear-gradient(to bottom, #ffe4e6, #ffc1d9);
+      overflow-x: hidden;
+    }
+    .heartbeat {
+      animation: pulse 1.5s ease-in-out infinite;
+    }
+    .float {
+      animation: float 4s ease-in-out infinite;
+    }
+  </style>
 </head>
-<body>
-    <h1>YEEEAAAYYYY</h1>
-    <div style="display: flex; justify-content: center; align-items: center; gap: 20px; margin-top: 20px;">
-        <img src="img/cowo.png" alt="Cowo" style="width: 270px; height: auto;">
-        <form id="dateForm" style="background-color: #fff0f5; padding: 20px; border-radius: 15px; box-shadow: 0px 0px 10px rgba(255, 182, 193, 0.5);">
-            <label for="waktuKosong">Waktu Kosong</label>
-            <input type="date" name="waktuKosong" id="waktuKosong" required>
-            <label for="waktuBerangkat">Berangkat</label>
-            <input type="time" name="waktuBerangkat" id="waktuBerangkat" required>
-            <label for="waktuPulang">Pulang</label>
-            <input type="time" name="waktuPulang" id="waktuPulang" required>
-            <button type="button" id="submitTanggal">Submit</button>
-        </form>
-        <img src="img/cewe.png" alt="Cewe" style="width: 300px; height: auto;">
-    </div>
-    <div style="display: flex; justify-content: center; margin-top: 20px;">
-        <div class="love" style="margin-right: 200px">❤️</div>
-        <div class="love" style="margin-left: 200px">❤️</div>
-    </div>
+<body class="min-h-screen flex flex-col items-center justify-center px-4 py-8">
 
-    <script>
-        document.getElementById("submitTanggal").addEventListener("click", function () {
-            // Ambil nilai dari input
-            const waktuKosong = document.getElementById("waktuKosong").value;
-            const waktuBerangkat = document.getElementById("waktuBerangkat").value;
-            const waktuPulang = document.getElementById("waktuPulang").value;
+  <h1 class="text-4xl md:text-5xl font-cute text-romantic heartbeat mb-6 text-center">YEEEAAAYYYY 💕</h1>
 
-            // Simpan ke localStorage
-            localStorage.setItem("waktuKosong", waktuKosong);
-            localStorage.setItem("waktuBerangkat", waktuBerangkat);
-            localStorage.setItem("waktuPulang", waktuPulang);
+  <!-- ❤️ versi HP: kanan kiri gambar cowo -->
+  <div class="flex md:hidden items-center justify-center gap-2 mb-6">
+    <div class="text-3xl animate-bounce">❤️</div>
+    <img src="img/cowo.png" alt="Cowo" class="w-32 float" />
+    <div class="text-3xl animate-bounce">❤️</div>
+  </div>
 
-            // Arahkan ke halaman lain
-            window.location.href = "destinasi.html";
-        });
-    </script>
+  <!-- ❤️ versi Desktop: cowo - form - cewe -->
+  <div class="flex md:flex-row items-center justify-center gap-8 w-full max-w-5xl">
+
+    <!-- Gambar Cowo (desktop only) -->
+    <img src="img/cowo.png" alt="Cowo"
+         class="w-32 md:w-64 float hidden md:block" />
+
+    <!-- Form -->
+    <form id="dateForm"
+          class="bg-softpink p-6 md:p-8 rounded-3xl shadow-2xl border-4 border-romantic w-full md:w-1/2 space-y-4">
+      <label for="waktuKosong" class="block text-lg font-cute text-romantic">Waktu Kosong</label>
+      <input type="date" name="waktuKosong" id="waktuKosong" required
+             class="w-full p-2 border border-romantic rounded-lg" />
+
+      <label for="waktuBerangkat" class="block text-lg font-cute text-romantic">Berangkat</label>
+      <input type="time" name="waktuBerangkat" id="waktuBerangkat" required
+             class="w-full p-2 border border-romantic rounded-lg" />
+
+      <label for="waktuPulang" class="block text-lg font-cute text-romantic">Pulang</label>
+      <input type="time" name="waktuPulang" id="waktuPulang" required
+             class="w-full p-2 border border-romantic rounded-lg" />
+
+      <button type="button" id="submitTanggal"
+              class="w-full mt-4 bg-romantic hover:bg-pink-600 text-white py-2 px-4 rounded-full text-lg font-cute shadow-md transition-all duration-300 hover:scale-105">
+        Submit 💌
+      </button>
+    </form>
+
+    <!-- Gambar Cewe (hanya desktop) -->
+    <img src="img/cewe.png" alt="Cewe"
+         class="w-36 md:w-72 float hidden md:block" />
+  </div>
+
+  <!-- ❤️ Cinta-cintaan versi Desktop -->
+  <div class="hidden md:flex justify-between w-full px-10 md:px-40 mt-10 text-3xl md:text-5xl">
+    <div class="animate-bounce">❤️</div>
+    <div class="animate-bounce">❤️</div>
+  </div>
+
+  <script>
+    document.getElementById("submitTanggal").addEventListener("click", function () {
+      const waktuKosong = document.getElementById("waktuKosong").value;
+      const waktuBerangkat = document.getElementById("waktuBerangkat").value;
+      const waktuPulang = document.getElementById("waktuPulang").value;
+
+      localStorage.setItem("waktuKosong", waktuKosong);
+      localStorage.setItem("waktuBerangkat", waktuBerangkat);
+      localStorage.setItem("waktuPulang", waktuPulang);
+
+      window.location.href = "destinasi.html";
+    });
+  </script>
+
 </body>
 </html>

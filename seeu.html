@@ -4,12 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>❤️</title>
-    <link rel="stylesheet" href="css/seeu.css">
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-    <div class="summary-container">
-        <h1>YEAYYY SEEUUUUUU</h1>
-        <div id="result"></div>
+<body class="bg-gradient-to-r from-pink-400 via-pink-300 to-purple-400 min-h-screen flex items-center justify-center">
+
+    <div class="text-center bg-white rounded-lg shadow-xl p-8 max-w-lg w-full space-y-6">
+        <h1 class="text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-pink-600 to-purple-700">
+            YEAYYY SEEUUUUUU 🎉
+        </h1>
+
+        <div id="result" class="text-lg text-gray-700 space-y-4">
+            <!-- Data from URL will be inserted here -->
+        </div>
+
+        <div class="mt-6">
+            <button onclick="window.history.back()" class="px-6 py-2 bg-pink-500 text-white rounded-full shadow-lg hover:bg-pink-600 focus:outline-none">
+                Kembali
+            </button>
+        </div>
     </div>
 
     <script>
@@ -25,17 +37,18 @@
 
         if (waktuKosong && waktuBerangkat && waktuPulang && destinasi) {
             resultContainer.innerHTML = `
-                <p>Waktu Kosong: <strong>${waktuKosong}</strong></p>
-                <p>Waktu Berangkat: <strong>${waktuBerangkat}</strong></p>
-                <p>Waktu Pulang: <strong>${waktuPulang}</strong></p>
-                <h3>Destinasi Pilihan: <strong>${destinasi}</strong></h3>
+                <p class="text-xl font-medium text-pink-600">Waktu Kosong: <span class="font-bold text-purple-700">${waktuKosong}</span></p>
+                <p class="text-xl font-medium text-pink-600">Waktu Berangkat: <span class="font-bold text-purple-700">${waktuBerangkat}</span></p>
+                <p class="text-xl font-medium text-pink-600">Waktu Pulang: <span class="font-bold text-purple-700">${waktuPulang}</span></p>
+                <h3 class="text-2xl font-bold text-purple-800">Destinasi Pilihan: <span class="text-pink-700">${destinasi}</span></h3>
             `;
         } else {
             resultContainer.innerHTML = `
-                <h1>Kesimpulan</h1>
-                <p>Data tidak lengkap. Silakan isi form dan pilih destinasi.</p>
+                <h2 class="text-3xl font-bold text-red-600">Kesimpulan</h2>
+                <p class="text-lg text-gray-500">Data tidak lengkap. Silakan isi form dan pilih destinasi.</p>
             `;
         }
     </script>
+
 </body>
 </html>

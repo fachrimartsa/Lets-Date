@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>❤️</title>
+    <title>Destinasi ❤️</title>
     <link rel="stylesheet" href="css/destinasi.css">
     <script>
         // Ambil data dari localStorage
@@ -29,29 +29,148 @@
             window.location.href = "seeu.html?" + queryParams;
         }
     </script>    
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(45deg, #ff99cc, #ff66b2, #ff3399);
+            background-size: 400% 400%;
+            animation: gradientShift 10s ease infinite;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 2rem;
+            color: #fff;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        h1 {
+            font-size: 3rem;
+            font-family: "Comic Sans MS", cursive;
+            text-align: center;
+            color: #ffffff;
+            margin-bottom: 1.5rem;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+            animation: bounce 1s ease-in-out infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .container1, .container2 {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+            justify-content: space-evenly;
+        }
+
+        .card {
+            position: relative;
+            width: 250px;
+            height: 200px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+
+        .card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: opacity 0.3s ease;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+        }
+
+        .card:hover img {
+            opacity: 0.8;
+        }
+
+        .card:active img {
+            opacity: 1;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.4);
+            transition: opacity 0.3s ease;
+        }
+
+        .card:hover::before {
+            opacity: 0;
+        }
+
+        .card h2 {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #fff;
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .card:hover h2 {
+            opacity: 1;
+        }
+    </style>
 </head>
 <body>
-    <h1>MAUUU KEMANAA KITAAA NANTI</h1>
+    <h1>MAUUU KEMANAA KITAAA NANTI 💕</h1>
+
+    <!-- Destinasi cards -->
     <div class="container1">
-        <div class="card">
-            <img src="img/cafe.jpg" alt="Date Place 1" onclick="goToSeeU('Caffe Date')">
+        <div class="card" onclick="goToSeeU('Caffe Date')">
+            <img src="img/cafe.jpg" alt="Date Place 1">
+            <h2>Caffe Date</h2>
         </div>
-        <div class="card">
-            <img src="img/bioskop.png" alt="Date Place 2" onclick="goToSeeU('Movie Date')">
+        <div class="card" onclick="goToSeeU('Movie Date')">
+            <img src="img/bioskop.png" alt="Date Place 2">
+            <h2>Movie Date</h2>
         </div>
-        <div class="card">
-            <img src="img/museum.jpg" alt="Date Place 3" onclick="goToSeeU('Museum Date')">
+        <div class="card" onclick="goToSeeU('Museum Date')">
+            <img src="img/museum.jpg" alt="Date Place 3">
+            <h2>Museum Date</h2>
         </div>
     </div>
+
     <div class="container2">
-        <div class="card">
-            <img src="img/taman.jpg" alt="Date Place 4" onclick="goToSeeU('Park Date')">
+        <div class="card" onclick="goToSeeU('Park Date')">
+            <img src="img/taman.jpg" alt="Date Place 4">
+            <h2>Park Date</h2>
         </div>
-        <div class="card">
-            <img src="img/timezone.jpg" alt="Date Place 5" onclick="goToSeeU('TimeZone Date')">
+        <div class="card" onclick="goToSeeU('TimeZone Date')">
+            <img src="img/timezone.jpg" alt="Date Place 5">
+            <h2>TimeZone Date</h2>
         </div>
-        <div class="card">
-            <img src="img/dinner.jpg" alt="Date Place 6" onclick="goToSeeU('Dinner Date')">
+        <div class="card" onclick="goToSeeU('Dinner Date')">
+            <img src="img/dinner.jpg" alt="Date Place 6">
+            <h2>Dinner Date</h2>
         </div>
     </div>
 </body>
